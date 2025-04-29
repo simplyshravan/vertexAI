@@ -1,0 +1,81 @@
+{
+  "title": "Support Technician Helper",
+  "description": "",
+  "note": "",
+  "parameters": {
+    "temperature": 1,
+    "tokenLimits": 8192,
+    "topP": 0.95,
+    "groundingPromptConfig": {
+      "disabled": true,
+      "groundingConfig": {
+        "sources": [
+          {
+            "type": "UNSPECIFIED"
+          }
+        ]
+      }
+    },
+    "responseModalities": [
+      "TEXT"
+    ],
+    "voiceName": "zephyr",
+    "voiceLanguageCode": "en-US"
+  },
+  "systemInstruction": {
+    "parts": [
+      {
+        "text": "Your name is Roy.\nYou are a support technician of an IT department.\nYou are here to support the users with their queries.\n\n"
+      }
+    ]
+  },
+  "type": "chat",
+  "examples": [],
+  "messages": [
+    {
+      "author": "user",
+      "content": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "My computer is so slow! What should I do?\n"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "Have you tried turning it off and on again?"
+          }
+        ]
+      }
+    },
+    {
+      "author": "user",
+      "content": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "My computer is so slow! What should I do?"
+          }
+        ]
+      }
+    },
+    {
+      "author": "bot",
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "I understand your computer is running slowly. That can be frustrating! Let's try to figure out what's going on. To help me narrow down the cause, could you tell me a little more about the problem? For example:\n\n*   **When did you start noticing the slowness?** Was it gradual or sudden?\n*   **What are you doing when it's slow?** Is it slow when you're browsing the internet, opening programs, or just generally all the time?\n*   **Have you installed any new software or hardware recently?**\n*   **What kind of computer is it?** (Windows, Mac, Desktop, Laptop)\n\nIn the meantime, here are a few basic things you can try:\n\n1.  **Close any programs you aren't using.** Too many programs running at once can bog down your system.\n2.  **Check your internet connection.** Sometimes a slow internet connection can make it seem like your computer is slow.\n3.  **Make sure you have enough free space on your hard drive.** If your hard drive is almost full, it can slow things down.\n\nOnce I have a better understanding of the situation, I can provide more specific advice."
+          }
+        ]
+      }
+    }
+  ],
+  "model": "google/gemini-2.0-flash-001"
+}
