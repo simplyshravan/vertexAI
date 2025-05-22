@@ -1,0 +1,58 @@
+PROJECT_ID=qwiklabs-gcp-03-c9e52c1d1c6a
+LOCATION=europe-west1
+API_ENDPOINT=${LOCATION}-aiplatform.googleapis.com
+MODEL_ID="gemini-2.0-flash-001"
+curl -X POST   -H "Authorization: Bearer $(gcloud auth print-access-token)"   -H "Content-Type: application/json"   https://${API_ENDPOINT}:generateContent   -d '{
+contents": {
+ "role": "USER",
+ "parts": { "text": "Why is the sky blue?" },
+,
+generation_config": {
+ "response_modalities": "TEXT",
+},
+2>/dev/null >response.json
+jq -r ".candidates[].content.parts[].text" response.json
+ls -lrt
+cat response.json
+curl -X POST   -H "Authorization: Bearer $(gcloud auth print-access-token)"   -H "Content-Type: application/json"   https://${API_ENDPOINT}:generateContent   -d '{
+contents": {
+ "role": "USER",
+ "parts": { "text": "Why is the sky blue?" },
+,
+generation_config": {
+ "response_modalities": "TEXT",
+},
+
+API_ENDPOINT=${API_ENDPOINT}//v1/projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}
+curl -X POST   -H "Authorization: Bearer $(gcloud auth print-access-token)"   -H "Content-Type: application/json"   https://${API_ENDPOINT}:generateContent   -d '{
+contents": {
+ "role": "USER",
+ "parts": { "text": "Why is the sky blue?" },
+,
+generation_config": {
+ "response_modalities": "TEXT",
+},
+2>/dev/null >response.json
+jq -r ".candidates[].content.parts[].text" response.json
+cat response.json
+echo $PROJECT_ID
+echo $REGION
+echo $LOCATION
+echo $MODEL_ID
+echo $API_ENDPOINT
+echo $API_HOST=${LOCATION}-aiplatform.googleapis.com
+API_HOST=${LOCATION}-aiplatform.googleapis.com
+echo $API_HOST
+API_ENDPOINT=${API_HOST}//v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}
+echo $API_ENDPOINT
+curl -X POST   -H "Authorization: Bearer $(gcloud auth print-access-token)"   -H "Content-Type: application/json"  https://${API_ENDPOINT}:generateContent  \
+  -d '{
+	contents": {
+	"role": "USER",
+	"parts": { "text": "Why is the sky blue?" },
+	,
+	generation_config": {
+	"response_modalities": "TEXT",
+	},
+	2>/dev/null >response.json
+  jq -r ".candidates[].content.parts[].text" response.json
